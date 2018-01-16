@@ -1,0 +1,19 @@
+html
+    head
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
+        meta(name="viewport",content="initial-scale=1, maximum-scale=1")
+        meta(http-equiv="X-UA-Compatible",content="IE=edge")
+        title=title
+        link(rel="stylesheet", href="/css/index.min.css")
+    body
+        .container
+            p #{locals.show.name}
+            p #{locals.show.tel} 
+            a.js-begin 开抢
+            .audio-box
+                img.js-audioImg(src='/images/bg-music.png')
+                audio#js-music(loop='loop' src='/source/all.mp3')				    
+        script(src='/js/zepto.min.js')
+        script(src='/js/index.js')
+            
