@@ -7,15 +7,20 @@ window.musicFn =(function(){
             myAudio.pause();
         }
     }
-    function toggleName(node,classname){
-        node.toggleClass(classname);
+    function toggleName(node,name){
+        var classval = node.className;
+        if(classval.indexOf(name)>-1){
+            node.className = classval.replace(name,'');
+        }else{
+            node.className = classval + ' '+name;
+        }
     }
     function toggleImg(node,url1,url2){
-        var url = node.attr('src');
+        var url = node.src;
         if(url.indexOf(url1) > -1 ){
-            node.attr('src',url2);
+            node.src = url2;
         }else{
-            node.attr('src',url1);
+            node.src = url1;
         }
     }
     function beginMusic(node,musicBtn,musicBgUrl){
@@ -28,16 +33,17 @@ window.musicFn =(function(){
     }
     
     function start(){
-        $('.js-audioImg').on('click',function(e){//右上角音乐小图片
-            var $this = $(this),
-                target = $(e.target);
-            toggleName($this,'circle');
+        var audioImg = document.getElementsByClassName('js-audioImg');
+        var begin = document.getElementsByClassName('js-begin');
+
+        audioImg[0].addEventListener('click',function(){//右上角音乐小图片
+            toggleName(this,'circle');
             audios('js-music');
-            toggleImg(target,'/images/bg-music.png','/images/bg-music2.png');
+            toggleImg(this,'/images/bg-music.png','/images/bg-music2.png');
         });
-        
-        $('.js-begin').on('click',function(){//开始按钮
-            beginMusic('js-music','js-audioImg','/images/bg-music.png');
+
+        begin[0].addEventListener('click',function(){//开始按钮
+            beginMusic('js-music','js-audioImg','/images/bg-music2.png');
         });
     }      
     return {
