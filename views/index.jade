@@ -6,7 +6,7 @@ html
         meta(http-equiv="X-UA-Compatible",content="IE=edge")
         title=title
         link(rel="stylesheet", href="/css/index.min.css")
-    body
+    body#body
         //横屏
         .js-heng.gift_rotate(style='display:none')
             p
@@ -17,10 +17,14 @@ html
             p #{locals.show.tel} 
             a.js-begin 开抢
             p#js-shake 重力
+            <p id="yaoyiyaono" style="font-size:20px;margin:10px;line-height:35px;display:none;">不能摇一摇</p>
+            <p id="yaoyiyaoresult" style="font-size:20px;margin:10px;line-height:50px;"></p>
             .audio-box
                 img.js-audioImg(src='/images/bg-music.png')
                 img(src='/images/bg-music2.png' style='display:none')
                 audio#js-music(loop='loop' src='/source/all.mp3')
+            
+            audio#js-shakeSound(src='/source/shake_sound.mp3')
         script(src='/js/crossScreen.js')        
         script(src='/js/index.js')
         script(src='/js/shake.js')
