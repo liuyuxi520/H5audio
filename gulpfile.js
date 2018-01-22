@@ -28,7 +28,8 @@ gulp.task("image",function(){
 		.pipe(gulp.dest("./public/images"));
 });
 gulp.task("js",function(){
-	gulp.src("./public/javascripts/**/*.js")
+    gulp.src("./public/javascripts/**/*.js")
+        .pipe(uglify({mangle: true,compress: true}))
 		.pipe(gulp.dest("./public/js"));
 });
 gulp.task("www",function(){
@@ -36,7 +37,6 @@ gulp.task("www",function(){
         var host = server.address().address;
         var port = server.address().port;
         console.log('Example app listening at http://%s:%s', host, port);
-        console.log()
     }); 
 });
 

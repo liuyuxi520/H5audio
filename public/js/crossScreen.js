@@ -1,0 +1,1 @@
+var App=window.App||{};App.crossScreenJs=function(n){window.addEventListener("onorientationchange"in window?"orientationchange":"resize",function(){180!==window.orientation&&0!==window.orientation||(document.getElementsByClassName(n)[0].style.display="none"),90!==window.orientation&&-90!==window.orientation||(document.getElementsByClassName(n)[0].style.display="block")},!1)};

@@ -7,6 +7,11 @@ html
         title=title
         link(rel="stylesheet", href="/css/index.min.css")
     body
+        //横屏
+        .js-heng.gift_rotate(style='display:none')
+            p
+                img(src='/images/gift_heng.png' width='30%')
+            p 请将手机旋转为竖向
         .container
             p #{locals.show.name}
             p #{locals.show.tel} 
@@ -15,5 +20,7 @@ html
                 img.js-audioImg(src='/images/bg-music.png')
                 img(src='/images/bg-music2.png' style='display:none')
                 audio#js-music(loop='loop' src='/source/all.mp3')
+        script(src='/js/crossScreen.js')        
         script(src='/js/index.js')
+        
             

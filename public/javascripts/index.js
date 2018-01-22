@@ -1,4 +1,5 @@
-window.musicFn =(function(){
+var App = window.App || {};
+App.musicFn =(function(){
     function audios(name) {//播放暂停音频
         var myAudio =document.getElementById(name);
         if(myAudio.paused){
@@ -45,6 +46,7 @@ window.musicFn =(function(){
         begin[0].addEventListener('click',function(){//开始按钮
             beginMusic('js-music','js-audioImg','/images/bg-music2.png');
         });
+        App.crossScreenJs('js-heng');
     }      
     return {
         audios : audios,
@@ -52,4 +54,5 @@ window.musicFn =(function(){
         beginMusic : beginMusic,
         start : start
     }  
-})().start();
+}());
+App.musicFn.start();
