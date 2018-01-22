@@ -16,11 +16,13 @@ html
             p #{locals.show.name}
             p #{locals.show.tel} 
             a.js-begin 开抢
+            p#js-shake 重力
             .audio-box
                 img.js-audioImg(src='/images/bg-music.png')
                 img(src='/images/bg-music2.png' style='display:none')
                 audio#js-music(loop='loop' src='/source/all.mp3')
         script(src='/js/crossScreen.js')        
         script(src='/js/index.js')
+        script(src='/js/shake.js')
         
             
