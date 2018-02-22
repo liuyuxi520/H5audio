@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 // var ApiMethod = require('../ApiMethod/ApiMethod');
 var co = require('co');
-router.get('/index.html',function(req,res){
+router.get(['/', '/index.html'],function(req,res){
     var pageData = {
         title:'lyx的express',
         show:{

@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var app = express();
-
+app.set('trust proxy', 1);
 app.use(function(req,res,next){
     var tel = '18811719040';
     if(tel){

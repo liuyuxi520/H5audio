@@ -18,6 +18,7 @@
   "homepage": "https://github.com/liuyuxi520/expressProject#readme",
   "devDependencies": {
     "aliyun-api-gateway": "^1.1.4",
+    "browser-sync": "^2.23.6",
     "co": "^4.6.0",
     "color-name": "^1.1.3",
     "express": "^4.16.2",
@@ -34,6 +35,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-rev": "^8.1.1",
     "gulp-uglify": "^3.0.0",
+    "http": "^0.0.0",
     "jade": "^1.11.0",
     "path": "^0.12.7",
     "through2-concurrent": "^1.1.1"

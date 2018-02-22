@@ -6,6 +6,8 @@ var gulp = require('gulp'),
     cleancss = require('gulp-clean-css'),//压缩
     uglify = require('gulp-uglify'),//混淆js
     imagemin = require('gulp-imagemin'),
+    http = require('http'),
+    browserSync = require('browser-sync'),
     nodeapp = require('./app.js');
 // var fs = require('fs');
 // var rev = require('gulp-rev');//加MD5后缀
@@ -33,14 +35,29 @@ gulp.task("js",function(){
 		.pipe(gulp.dest("./public/js"));
 });
 gulp.task("www",function(){
-    var server = nodeapp.listen(9090,function(){
+    var server = http.createServer(nodeapp);
+    var port = 9090;
+    nodeapp.set('port', port);
+    server.listen(port,function(){
         var host = server.address().address;
         var port = server.address().port;
         console.log('Example app listening at http://%s:%s', host, port);
     }); 
 });
+// gulp.task('browser-sync', ['www'], function () {
+//     browserSync.init(null, {
+//         proxy: 'http://h5.lyx.com:88/',
+//         files: '{{public,views,routes}/**/*.*,app.js}',
+//         browser: 'google chrome',
+//         notify: false,
+//         port: 8989
+        
+//     });
+// });
 
+// gulp.task("lyx",["css","browser-sync","image","js"]); 
 gulp.task("lyx",["css","www","image","js"]); 
+
 
 gulp.task("default",["lyx"],function(){
     gulp.watch(["./public/less/**/*.less"],["css"]);
